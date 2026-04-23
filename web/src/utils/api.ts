@@ -51,7 +51,7 @@ export default {
   boxWebAuthResult: () => `${restAPIv1}/connectors/box/oauth/web/result`,
 
   // plugin
-  llmTools: `${webAPI}/plugin/llm_tools`,
+  llmTools: `${restAPIv1}/plugin/tools`,
 
   chatsTranscriptions: `${restAPIv1}/chat/audio/transcription`,
 
@@ -99,12 +99,10 @@ export default {
   renameTag: (knowledgeId: string) => `${webAPI}/kb/${knowledgeId}/rename_tag`,
 
   // chunk
-  chunkList: `${webAPI}/chunk/list`,
-  createChunk: `${webAPI}/chunk/create`,
-  setChunk: `${webAPI}/chunk/set`,
-  getChunk: `${webAPI}/chunk/get`,
-  switchChunk: `${webAPI}/chunk/switch`,
-  rmChunk: `${webAPI}/chunk/rm`,
+  chunkList: (datasetId: string, documentId: string) =>
+    `${restAPIv1}/datasets/${datasetId}/documents/${documentId}/chunks`,
+  chunkDetail: (datasetId: string, documentId: string, chunkId: string) =>
+    `${restAPIv1}/datasets/${datasetId}/documents/${documentId}/chunks/${chunkId}`,
   retrievalTest: `${webAPI}/chunk/retrieval_test`,
   knowledgeGraph: `${webAPI}/chunk/knowledge_graph`,
 
@@ -175,7 +173,7 @@ export default {
   getSystemTokenList: `${restAPIv1}/system/tokens`,
   createSystemToken: `${restAPIv1}/system/tokens`,
   removeSystemToken: `${restAPIv1}/system/tokens`,
-  getSystemConfig: `${webAPI}/system/config`,
+  getSystemConfig: `${restAPIv1}/system/config`,
   setLangfuseConfig: `${restAPIv1}/langfuse/api-key`,
 
   // flow
