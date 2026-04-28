@@ -66,9 +66,14 @@ func (z *VolcEngine) ChatStreamlyWithSender(modelName, message *string, apiConfi
 	return fmt.Errorf("%s, no such method", z.Name())
 }
 
-// EncodeToEmbedding encodes a list of texts into embeddings
-func (z *VolcEngine) EncodeToEmbedding(modelName *string, texts []string, apiConfig *APIConfig, embeddingConfig *EmbeddingConfig) ([][]float64, error) {
+// Encode encodes a list of texts into embeddings
+func (z *VolcEngine) Encode(modelName *string, texts []string, apiConfig *APIConfig, embeddingConfig *EmbeddingConfig) ([][]float64, error) {
 	return nil, fmt.Errorf("not implemented")
+}
+
+// Rerank calculates similarity scores between query and texts
+func (z *VolcEngine) Rerank(modelName *string, query string, texts []string, apiConfig *APIConfig) ([]float64, error) {
+	return nil, fmt.Errorf("%s, Rerank not implemented", z.Name())
 }
 
 func (z *VolcEngine) ListModels(apiConfig *APIConfig) ([]string, error) {
