@@ -73,6 +73,8 @@ func (f *ModelFactory) CreateModelDriver(providerName string, baseURL map[string
 		return NewBaiduModel(baseURL, urlSuffix), nil
 	case "cohere":
 		return NewCoHereModel(baseURL, urlSuffix), nil
+	case "cometapi":
+		return NewCometAPIModel(baseURL, urlSuffix), nil
 	case "fishaudio":
 		return NewFishAudioModel(baseURL, urlSuffix), nil
 	case "mistral":
@@ -95,6 +97,10 @@ func (f *ModelFactory) CreateModelDriver(providerName string, baseURL map[string
 		return NewVoyageModel(baseURL, urlSuffix), nil
 	case "paddleocr":
 		return NewPaddleOCRModel(baseURL, urlSuffix), nil
+	case "xunfei":
+		return NewXunFeiModel(baseURL, urlSuffix), nil
+	case "deepinfra":
+		return NewDeepInfraModel(baseURL, urlSuffix), nil
 	default:
 		return NewDummyModel(baseURL, urlSuffix), nil
 	}
